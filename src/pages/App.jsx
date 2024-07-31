@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {authRoutes} from "../routes/index.jsx";
 import {Route, Routes} from "react-router";
 
