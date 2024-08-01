@@ -1,4 +1,4 @@
-import {Login, Register} from "./LoadComponent.jsx";
+import {DashBoard, Login, Register} from "./LoadComponent.jsx";
 
 
 export const authRoutes = [
@@ -15,6 +15,7 @@ export const authRoutes = [
 
 export const serviceRoutes = [
     {
-
+        path: '/',
+        element: <DashBoard />
     }
 ]

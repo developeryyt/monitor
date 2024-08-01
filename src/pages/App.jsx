@@ -1,29 +1,33 @@
-import {useEffect} from "react";
-import {authRoutes} from "../routes/index.jsx";
-import {Route, Routes} from "react-router";
+import {Routes, useNavigate} from "react-router";
+import Routing from "./routing/index.jsx";
+import {useEffect, useState} from "react";
+import {authRoutes, serviceRoutes} from "../routes/index.jsx";
+import {useSelector} from "react-redux";
 
 const App = () => {
 
-  useEffect(() => {
-  }, [])
+    const [routesArr, setRoutesArr] = useState(authRoutes)
+    const { isLogin } = useSelector((state) => state.auth)
+    const navigate = useNavigate()
 
 
-  return (
-    <>
-      <Routes>
-        {
-          authRoutes?.map((routes) => {
-            return (
-                <Route
-                    {...routes}
-                    key={routes?.['path']}
-                />
-            )
-          })
+    useEffect(() => {
+        if(isLogin) {
+            navigate('/')
+            setRoutesArr(prev => [...prev, ...serviceRoutes])
+        }else {
+            navigate('login')
+            setRoutesArr(authRoutes)
         }
-      </Routes>
-    </>
-  )
+    }, [isLogin])
+
+
+
+    return (
+        <>
+            <Routing routesArr={routesArr} />
+        </>
+    )
 }
 
 export default App

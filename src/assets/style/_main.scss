@@ -1,0 +1,20 @@
+/****************
+* 로그인
+****************/
+
+.login-wrapper {
+  height: 100%;
+  background-color: var(--rgba-primary-1);
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .login-form {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+  }
+}
