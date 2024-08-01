@@ -1,7 +1,12 @@
 import {useDispatch, useSelector} from "react-redux";
 import {onLogin} from "../../store/authSlice/index.js";
+import {useState} from "react";
 
 const Login = () => {
+
+    const [userId, setUserId] = useState('')
+    const [userPw, setUserPw] = useState('')
+
 
     // const dispatch = useDispatch()
 
@@ -28,8 +33,8 @@ const Login = () => {
                                         type='text'
                                         className='form-control'
                                         placeholder='Type Your ID'
-                                        onChange={() => {}}
-                                        value={''}
+                                        onChange={(e) => setUserId(e.target.value)}
+                                        value={userId}
                                     />
                                 </div>
                             </div>
@@ -44,8 +49,8 @@ const Login = () => {
                                         type='password'
                                         className='form-control'
                                         placeholder='Type Your Password'
-                                        onChange={() => {}}
-                                        value={''}
+                                        onChange={(e) => setUserPw(e.target.value)}
+                                        value={userPw}
                                     />
                                 </div>
                             </div>
