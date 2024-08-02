@@ -18,11 +18,11 @@ export default defineConfig(({ mode }) => {
     define: {
       'process.env' : process.env
     },
-    server: {
-      port: 4000,
-      watch: {
-        ignored: ['**/node_modules', '**/build']
-      }
-    }
+    // server: {
+    //   port: 4000,
+    //   watch: {
+    //     ignored: ['**/node_modules', '**/build']
+    //   }
+    // }
   }
 })

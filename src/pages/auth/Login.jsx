@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {onLogin} from "../../store/authSlice/index.js";
 import {useState} from "react";
+import API from "../../networks/index.js";
 
 const Login = () => {
 
@@ -13,6 +14,8 @@ const Login = () => {
     // const onLoggedIn = () => {
     //     dispatch(onLogin())
     // }
+
+    console.log(API)
 
     return (
         <div className='login-wrapper'>

@@ -1,9 +1,5 @@
 import axios from 'axios'
 
-
-
-// axios.defaults.url =
-
 class Networks {
 
 
