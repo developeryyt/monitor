@@ -1,8 +1,5 @@
-import {useDispatch, useSelector} from "react-redux";
-import {onLogin} from "../../store/authSlice/index.js";
-import {useState} from "react";
-import API from "../../networks";
 import {useForm} from "react-hook-form";
+import API from "../../networks/index.js";
 
 const Login = () => {
 
@@ -14,7 +11,7 @@ const Login = () => {
     const { register, handleSubmit, watch } = useForm()
 
     const onSubmit = (data) => {
-
+        API.connectAPI('/auth/login', 'POST', data)
     }
 
     return (

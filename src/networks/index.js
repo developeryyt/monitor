@@ -2,22 +2,27 @@ import axios from 'axios'
 
 class Networks {
 
-
-    BASEURL = `${process.env.VITE_API_URL}`
+    static BASEURL = `${process.env.VITE_API_URL}`
     AXIOS = null;
 
     constructor() {
-        console.log(`API URL::::: ${this.BASEURL}`)
+        console.log(`API URL::::: ${Networks.BASEURL}`)
         this.initAxios()
     }
 
     initAxios() {
         this.AXIOS = axios.create({
-            baseURL: this.BASEURL
+            baseURL: Networks.BASEURL
         })
     }
 
-
+    async connectAPI(url, method, data = null) {
+        await this.AXIOS({
+            url,
+            method,
+            data
+        })
+    }
 
 }
 
