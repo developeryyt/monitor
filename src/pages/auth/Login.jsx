@@ -1,21 +1,21 @@
 import {useDispatch, useSelector} from "react-redux";
 import {onLogin} from "../../store/authSlice/index.js";
 import {useState} from "react";
-import API from "../../networks/index.js";
+import API from "../../networks";
+import {useForm} from "react-hook-form";
 
 const Login = () => {
 
-    const [userId, setUserId] = useState('')
-    const [userPw, setUserPw] = useState('')
-
-
     // const dispatch = useDispatch()
-
     // const onLoggedIn = () => {
     //     dispatch(onLogin())
     // }
 
-    console.log(API)
+    const { register, handleSubmit, watch } = useForm()
+
+    const onSubmit = (data) => {
+
+    }
 
     return (
         <div className='login-wrapper'>
@@ -25,7 +25,7 @@ const Login = () => {
                 <div className='login-form'>
                     <div className='auth-content'>
                         <h3>Sign in your account</h3>
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className='form-group'>
                                 <label htmlFor='userid'>
                                     <strong>UserId</strong>
@@ -36,8 +36,9 @@ const Login = () => {
                                         type='text'
                                         className='form-control'
                                         placeholder='Type Your ID'
-                                        onChange={(e) => setUserId(e.target.value)}
-                                        value={userId}
+                                        {...register('userId', {
+                                            required: true,
+                                        })}
                                     />
                                 </div>
                             </div>
@@ -52,8 +53,9 @@ const Login = () => {
                                         type='password'
                                         className='form-control'
                                         placeholder='Type Your Password'
-                                        onChange={(e) => setUserPw(e.target.value)}
-                                        value={userPw}
+                                        {...register('userPw', {
+                                            required: true,
+                                        })}
                                     />
                                 </div>
                             </div>
