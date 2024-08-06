@@ -1,28 +1,34 @@
 import {useForm} from "react-hook-form";
 import API from "../../networks/index.js";
+import {useDispatch} from "react-redux";
+import {loginConfirmAction} from "../../store/actions/AuthActions.js";
+
+
+
 
 const Login = () => {
 
-    // const dispatch = useDispatch()
-    // const onLoggedIn = () => {
-    //     dispatch(onLogin())
-    // }
 
+    const dispatch = useDispatch()
     const { register, handleSubmit, watch } = useForm()
 
-    const onSubmit = (data) => {
-        API.connectAPI('/auth/login', 'POST', data)
+    const onLogin = async (data) => {
+        // const results = await API.connectAPI('/auth/login', 'POST', data)
+
+        dispatch(loginConfirmAction(data))
+
+        // console.log(results)
     }
 
     return (
         <div className='login-wrapper'>
-           <div className='login-aside'>
+           <div className='login-aside'>1
            </div>
             <div className='container'>
                 <div className='login-form'>
                     <div className='auth-content'>
                         <h3>Sign in your account</h3>
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onLogin)}>
                             <div className='form-group'>
                                 <label htmlFor='userid'>
                                     <strong>UserId</strong>

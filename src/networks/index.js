@@ -1,5 +1,14 @@
 import axios from 'axios'
 
+
+axios.defaults.baseURL = `${process.env.VITE_API_URL}`
+
+
+
+
+
+
+
 class Networks {
 
     static BASEURL = `${process.env.VITE_API_URL}`
@@ -12,16 +21,26 @@ class Networks {
 
     initAxios() {
         this.AXIOS = axios.create({
-            baseURL: Networks.BASEURL
+            baseURL: Networks.BASEURL,
+            headers: {
+                'boa-authorization': `Bearer ${localStorage.getItem('token')}` ?? '',
+            }
         })
     }
 
     async connectAPI(url, method, data = null) {
-        await this.AXIOS({
-            url,
-            method,
-            data
-        })
+        try {
+            const result = await this.AXIOS({
+                url,
+                method,
+                data
+            })
+            
+            return result;
+        }catch(err) {
+            throw new Error(err)
+        }
+
     }
 
 }

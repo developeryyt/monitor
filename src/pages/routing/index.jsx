@@ -2,7 +2,7 @@ import {Route, Routes} from "react-router-dom";
 
 const Routing = ({routesArr}) => {
 
-    console.log(routesArr)
+    // console.log(routesArr)
 
     return (
         <Routes>
