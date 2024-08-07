@@ -1,25 +1,21 @@
 import {useForm} from "react-hook-form";
-import API from "../../networks/index.js";
 import {useDispatch} from "react-redux";
-import {loginAction, loginConfirmAction} from "../../store/actions/AuthActions.js";
-
-
+import {loginAction} from "../../store/actions/AuthActions.js";
 
 
 const Login = () => {
 
-
     const dispatch = useDispatch()
     const { register, handleSubmit, watch } = useForm()
 
-    const onLogin = async (data) => {
+    const onLogin = (data) => {
         dispatch(loginAction(data))
-
     }
+
 
     return (
         <div className='login-wrapper'>
-           <div className='login-aside'>1
+           <div className='login-aside'>
            </div>
             <div className='container'>
                 <div className='login-form'>
