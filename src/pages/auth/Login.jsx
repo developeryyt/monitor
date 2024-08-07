@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form";
 import API from "../../networks/index.js";
 import {useDispatch} from "react-redux";
-import {loginConfirmAction} from "../../store/actions/AuthActions.js";
+import {loginAction, loginConfirmAction} from "../../store/actions/AuthActions.js";
 
 
 
@@ -13,11 +13,8 @@ const Login = () => {
     const { register, handleSubmit, watch } = useForm()
 
     const onLogin = async (data) => {
-        // const results = await API.connectAPI('/auth/login', 'POST', data)
+        dispatch(loginAction(data))
 
-        dispatch(loginConfirmAction(data))
-
-        // console.log(results)
     }
 
     return (

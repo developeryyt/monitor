@@ -22,9 +22,9 @@ class Networks {
     initAxios() {
         this.AXIOS = axios.create({
             baseURL: Networks.BASEURL,
-            headers: {
-                'boa-authorization': `Bearer ${localStorage.getItem('token')}` ?? '',
-            }
+            // headers: {
+            //     'boa-authorization': `Bearer ${localStorage.getItem('token')}` ?? '',
+            // }
         })
     }
 
@@ -35,7 +35,7 @@ class Networks {
                 method,
                 data
             })
-            
+
             return result;
         }catch(err) {
             throw new Error(err)

@@ -15,8 +15,13 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         signIn: (state, action) => {
-            // state.auth = action.payload
-            state.isLogin = true
+            const { data, type } = action.payload
+
+            if(type === 'loginSuccess') {
+                state.isLogin = true
+                state.auth.userId = data
+            }
+
         },
         signOut: (state, action) => {
         }
